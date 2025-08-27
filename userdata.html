@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EduTech Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <!-- Landing -->
+  <div id="landing" class="container">
+    <h2>Welcome to EduTech</h2>
+    <button onclick="showSignup()">Signup</button>
+    <button onclick="showLogin()">Login</button>
+  </div>
+
+  <!-- Signup -->
+  <div id="signup" class="container hidden">
+    <h2>Signup</h2>
+    <input type="text" id="signupName" placeholder="Name">
+    <input type="email" id="signupEmail" placeholder="Email">
+    <input type="password" id="signupPassword" placeholder="Password">
+    <button onclick="togglePassword('signupPassword')">Show/Hide Password</button>
+    <select id="signupGender">
+      <option value="">Select Gender</option>
+      <option>Male</option><option>Female</option>
+    </select>
+    <button onclick="signup()">Signup</button>
+    <button onclick="backLanding()">Back</button>
+  </div>
+
+  <!-- Login -->
+  <div id="login" class="container hidden">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button onclick="togglePassword('loginPassword')">Show/Hide Password</button>
+    <button onclick="login()">Login</button>
+    <button onclick="backLanding()">Back</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="dashboard hidden">
+    <h2 style="color:#fff;">Dashboard</h2>
+    <p id="welcomeUser"></p>
+    <button onclick="openProfile()">My Profile</button>
+    <button onclick="logout()">Logout</button>
+
+    <!-- Users Table -->
+    <h3 style="color:white;">All Users</h3>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Gender</th></tr>
+      </thead>
+      <tbody id="userTable"></tbody>
+    </table>
+
+    <!-- GK Quiz -->
+    <div class="quiz-card">
+      <h3>General Knowledge Quiz</h3>
+      <div id="quizQuestion">Click Next to start</div>
+      <div id="quizOptions"></div>
+      <button onclick="loadQuiz()">Next Question</button>
+      <p id="quizScore"></p>
+    </div>
+  </div>
+
+  <!-- Profile -->
+  <div id="profile" class="container hidden">
+    <h2>My Profile</h2>
+    <p><strong>Name:</strong> <span id="profileName"></span></p>
+    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+    <p><strong>Gender:</strong> <span id="profileGender"></span></p>
+
+    <h3>Edit Profile</h3>
+    <input type="text" id="editName" placeholder="New Name">
+    <input type="password" id="editPassword" placeholder="New Password">
+    <select id="editGender">
+      <option value="">Select Gender</option>
+      <option>Male</option><option>Female</option>
+    </select>
+    <button onclick="updateProfile()">Update</button>
+    <button onclick="deleteAccount()" class="cancel-btn">Delete Account</button>
+    <button onclick="backDashboard()">Back</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
